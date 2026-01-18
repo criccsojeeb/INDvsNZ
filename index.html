@@ -51,16 +51,70 @@ body{
   text-decoration:none;
 }
 </style>
+  <style>
+/* Telegram Join Popup */
+.tg-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:99999;
+}
+.tg-box{
+  width:90%;
+  max-width:360px;
+  background:linear-gradient(135deg,#1da1f2,#0d6efd);
+  padding:25px;
+  border-radius:16px;
+  text-align:center;
+  color:#fff;
+  box-shadow:0 0 40px rgba(29,161,242,.6);
+}
+.tg-box h2{
+  margin:10px 0;
+}
+.tg-box p{
+  font-size:14px;
+  opacity:.9;
+}
+.tg-btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:10px;
+  font-size:16px;
+  cursor:pointer;
+  margin-top:12px;
+}
+.tg-join{
+  background:#fff;
+  color:#0d6efd;
+  font-weight:bold;
+}
+.tg-later{
+  background:rgba(255,255,255,.25);
+  color:#fff;
+}
+  </style>
 </head>
 
 <body oncontextmenu="return false">
 
 <div class="header">
-  CriccVerse X Sojeeb 
+  CriccVerse ✘ Sojeeb 
 </div>
 
 <div class="player-box">
-  <video id="player" controls playsinline></video>
+  <video 
+  id="player"
+  playsinline
+  muted
+  autoplay
+  controls
+  preload="auto">
+  </video>
 </div>
 
 <div class="tg-box">
@@ -86,60 +140,60 @@ if(!localStorage.getItem("tg_skip")){
     }
   },1500);
 }
-
 /* ========== ADMIN PANEL (CHANNEL LIST) ========== */
 const CHANNELS = {
-  criclife: {
-    name:"CricLife",
-    url:"https://allinonereborn.xyz/mix.m3u8/live4.php?id=303627"
-  },
-  cricbuzz: {
-    name:"Cricbuzz",
-    url:"https://allinonereborn.xyz/mix.m3u8/live4.php?id=303629"
-  },
-  willow: {
-    name:"Willow",
-    url:"https://allinonereborn.xyz/mix.m3u8/live4.php?id=13141"
-  },
-  willow2: {
-    name:"Willow 2",
-    url:"https://allinonereborn.xyz/mix.m3u8/live4.php?id=282231"
-  },
-  sky: {
-    name:"Sky Sports",
-    url:"https://allinonereborn.xyz/mix.m3u8/live4.php?id=10527"
-  },
-  tnt: {
-    name:"TNT Sports",
-    url:"https://allinonereborn.xyz/mix.m3u8/live4.php?id=77413"
-  },
-  fox: {
-    name:"Fox Sports",
-    url:"https://allinonereborn.xyz/mix.m3u8/live4.php?id=197185"
-  },
-  star: {
-    name:"Star Sports",
-    url:"https://allinonereborn.xyz/mix.m3u8/live4.php?id=276736"
-  },
-  sony: {
-    name:"Sony Sports",
-    url:"https://allinonereborn.xyz/mix.m3u8/live4.php?id=276737"
-  },
-  zee: {
-    name:"Zee Cinema",
-    url:"https://allinonereborn.xyz/mix.m3u8/live4.php?id=276907"
-  },
-  geo: {
-    name:"Geo Super",
-    url:"https://allinonereborn.xyz/mix.m3u8/live4.php?id=49242"
-  },
-  fancode: {
-    name:"FanCode",
-    url:"https://bd-mc-fdlive.fancode.com/mumbai/138656_english_hls_ce83ff130b39556_1ta-di_h264/index.m3u8"
-  },
-  fancode2:"https://bd-mc-fdlive.fancode.com/mumbai/131003_english_hls_ae70ea1be669377_1ta-di_h264/index.m3u8"
-};
 
+  criclife: {
+    name: "Live 1",
+    url: "https://aps33.playlist.live-video.net/v1/playlist/CrsF3COBdWFghp4vxOfurPjES5PUYFzFvezRVrVB_xef8bkW8lpkn_drT3qSbq5l94FP3UfV5fXaOuuyYhbZ3gGqDVroCTCa_KKlcvvpTiCCEb2dTAimeTdz-y9SjVsn03QEeVCU-6g9p0beByc8RBc841NEKbL3-3qxLzdb9-n13xrygwdXsCdMM_dyZiKfN6MpluJEoKHtG4Wn92zDGY0TtbCIdHbKSd1vEx1kff_dOnRrq7CPOHh2TCWLnYowFcvEO7JOt-4vAynzh7m0w1seJC02QC_aWeD-tInIDLUdzJpWrrliqFDI0-6MAJTR8DQhs3uTySf6ZSaxLC1xtEgDJsh4VfIZIuXuaeW3MdOWS_8ELSTJlIWVNr6Ow4Vw75NK4Ltx2yk63L0u52GTEUhoHurUaI1YHala3QRxFVlGCDYB0l1cWIRjk3sWn6uHIhY4MSAnxPL-bJJOXfFek9SmYl-lCf-9rk-HXh6o8oBtKSbXVbz3SChWNFutrm_xVDRr8r50Ohb11pOxdxeDW5QsPpp5ozU19I8MZOrRKZVVpz-1jSpwQm8fFzDsp2ls60kGckrht75CA19z1fmrbnFCq6M-iBkgacfIdZN6M_tzXRWuvTyPPzRcdnD9fXP2Dhmrf81aKnLoOfv7A50rIkA2ocvMehKzexpxmf7oWOjo0jQGqhbosBeq8sp90SLuZhYL01W0jHeS5YTXEbV0CmHWbE3TniaJeWoUCNhfUFt8ua6Jui1cOmi5OkB58Hf178WGQw5j-U0ghpu7b8Fj5xZehD942hCOMRfBXJbWwnDKZe3_IUnPFqAcPNQ9rk6XQGhHtMERNHaEqDmgb_JBs3rCcOmEb8X0oAhEP-QNieApCYEbTiV7iqblv_VZCQyDDjrj6NPF-41dj0h33KwhwVAGMGpVdNOjQnfRUHlqGgwRBGql7mw-_74NQecgASoJdXMtd2VzdC0yMJkO.m3u8"
+  },
+
+  hotstar: {
+    name: "Live 2",
+    url: "https://aps32.playlist.live-video.net/v1/playlist/CrYFUqVgGjc84DNNVmORwTr8Y5gQc37ptpDjZs4gzS36wNfiGfX9rfUfiS07Wy1wVlJmkSaqigIcN_CNe9aJY6u5zEwqqPHtA41XCFooVVQ6CAWxmHR2Z1JZTCK-xvA6RxSKati5kgpndIi4O46uH56P2M2H4pX0Tb3NtGHXKeEjWSqyQOeORKlODZEn8BtOmSt4gWKEqSwCMlZKILRL-AALbx4_WCbD9sr2rRSFGEmNz1R-x1Qn81KKPyJyfDDbpQ_2NPmuIgc1Dhoyx3i5yvVGIU72ymENIAo-N2NG9pNV3IgD6-UUd87kyxlTpRqr-ggHlmtJ6bfE7KLPbOEqEj481_X4D7s6Nb2hxHEm50wyYYDK53b-bO3hkY5IUzOwtgFzdFXlwsaB6-Z6zXkO3xUFbXVATYRxyngFIMjICTeZI00QdlBUaPOHqyQO6RCDAqhEKCYXE7ExFtz7SI-REW8dtzD8lQbvVQD8FaT0ED6g6emAVxT64Zkr1G7e3AmPnrjyGEsvvMiV05_DbUPge3JgJ6eVAjfYgjE1ewxVrTnO5g7Qq2XRzMlnIIslL9_pt8TX3297uWoAb6TIJrRbMeETSJtXF6sO0Wg1e5-WCyRTRVxw8NsABEGHGQWZonzsLrVP24ysKBi_4pw1-Nd_CNKPzzdEj1UvClR0N48oVnPgu970kjHztXqjplBhr_FJrSFui8djyEEGU0pFOfYoQFWdOZxhvFBt6IOftzTK5EaIK37Riqf3Bgz-bzCcuRdRgCVEDKFrzDBq7z_p3ghTgjrbqpEMquBjR8DJ1x6_kpJtK3RpLxM972gn-BwJhG2DaZV2yG2sC8dx1vFv83c36h63TwYYpm0T0cF-13NNFjnloWQIuJClr3Nj-WbPrDhyaORb44Kf62-jsENhZMwuKQD3u2CYIYnryhoM3vkNVAXfB9aKLZ8wIAEqCXVzLXdlc3QtMjCZDg.m3u8"
+  },
+
+  willow: {
+    name: "Live 3",
+    url: "https://allinonereborn.xyz/push4k/live.php?id=15521"
+  },
+
+  fox: {
+    name: "Live 4",
+    url: "https://allinonereborn.xyz/mix.m3u8/live2.php?id=197189"
+  },
+
+  star1: {
+    name: "Live 5",
+    url: "https://allinonereborn.xyz/push4k/live.php?id=25391"
+  },
+
+  live6: {
+    name: "Live 6",
+    url: "https://allinonereborn.xyz/mix.m3u8/live2.php?id=10527"
+  },
+
+  live7: {
+    name: "Live 7",
+    url: "https://allinonereborn.xyz/mix.m3u8/live2.php?id=77413"
+  },
+
+  live8: {
+    name: "Live 8",
+    url: "https://allinonereborn.xyz/mix.m3u8/live2.php?id=197185"
+  },
+
+  live9: {
+    name: "Live 9",
+    url: "https://allinonereborn.xyz/mix.m3u8/live2.php?id=276736"
+  },
+
+  live10: {
+    name: "Live 10",
+    url: "https://allinonereborn.xyz/mix.m3u8/live2.php?id=276737"
+  }
+
+};
 /* ========== STREAM SELECTOR ========== */
 const params = new URLSearchParams(window.location.search);
 const ch = params.get("ch");
@@ -171,8 +225,62 @@ new Plyr(video,{
 });
 
 </script>
+  <!-- Telegram Join Popup -->
+<div class="tg-overlay" id="tgPopup">
+  <div class="tg-box">
+    <h2>Join our Telegram</h2>
+    <p>Get instant updates on all live streams</p>
+
+    <button class="tg-btn tg-join" onclick="joinTG()">Join Now</button>
+    <button class="tg-btn tg-later" onclick="closeTG()">Maybe Later</button>
+  </div>
+</div>
+  <script>
+function joinTG(){
+  window.open("https://t.me/CriccSojeeb","_blank");
+}
+
+function closeTG(){
+  document.getElementById("tgPopup").style.display="none";
+}
+
+// Reload হলেই popup দেখাবে
+window.onload = function(){
+  document.getElementById("tgPopup").style.display="flex";
+};
+  </script>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
